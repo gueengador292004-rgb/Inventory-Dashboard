@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inventory Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><h1>📦 Inventory Dashboard</h1></header>
+  <main>
+    <section class="cards">
+      <div class="card"><span>Total Products</span><strong id="sProducts">0</strong></div>
+      <div class="card"><span>Total Units</span><strong id="sUnits">0</strong></div>
+      <div class="card"><span>Inventory Value</span><strong id="sValue">0</strong></div>
+      <div class="card warn"><span>Low Stock (≤5)</span><strong id="sLow">0</strong></div>
+    </section>
+
+    <section class="panel">
+      <h2 id="formTitle">Add Product</h2>
+      <form id="productForm">
+        <input type="hidden" id="id">
+        <input id="name" placeholder="Name" required>
+        <input id="category" placeholder="Category" value="General">
+        <input id="price" type="number" step="0.01" min="0" placeholder="Price" required>
+        <input id="quantity" type="number" min="0" placeholder="Quantity" required>
+        <button type="submit" id="saveBtn">Add</button>
+        <button type="button" id="cancelBtn" class="secondary" hidden>Cancel</button>
+      </form>
+      <p id="error" class="error"></p>
+    </section>
+
+    <section class="panel">
+      <div class="row">
+        <h2>Products</h2>
+        <input id="search" placeholder="Search name or category...">
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ID</th><th>Name</th><th>Category</th><th>Price</th><th>Qty</th><th>Actions</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
